@@ -13,6 +13,7 @@ contract DefaultCallbackHandler is ERC1155TokenReceiver, ERC777TokensRecipient, 
 
     function onERC1155Received(address, address, uint256, uint256, bytes calldata)
         external
+        override
         returns(bytes4)
     {
         return 0xf23a6e61;
@@ -20,6 +21,7 @@ contract DefaultCallbackHandler is ERC1155TokenReceiver, ERC777TokensRecipient, 
 
     function onERC1155BatchReceived(address, address, uint256[] calldata, uint256[] calldata, bytes calldata)
         external
+        override
         returns(bytes4)
     {
         return 0xbc197c81;
@@ -27,13 +29,14 @@ contract DefaultCallbackHandler is ERC1155TokenReceiver, ERC777TokensRecipient, 
 
     function onERC721Received(address, address, uint256, bytes calldata)
         external
+        override
         returns(bytes4)
     {
         return 0x150b7a02;
     }
 
     // solium-disable-next-line no-empty-blocks
-    function tokensReceived(address, address, address, uint256, bytes calldata, bytes calldata) external {
+    function tokensReceived(address, address, address, uint256, bytes calldata, bytes calldata) external override {
         // We implement this for completeness, doesn't really have any value
     }
 

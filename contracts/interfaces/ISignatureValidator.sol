@@ -5,7 +5,7 @@ contract ISignatureValidatorConstants {
     bytes4 constant internal EIP1271_MAGIC_VALUE = 0x20c13b0b;
 }
 
-contract ISignatureValidator is ISignatureValidatorConstants {
+abstract contract ISignatureValidator is ISignatureValidatorConstants {
 
     /**
     * @dev Should return whether the signature provided is valid for the provided data

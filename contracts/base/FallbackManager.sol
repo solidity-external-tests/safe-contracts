@@ -28,7 +28,7 @@ contract FallbackManager is SelfAuthorized {
         internalSetFallbackHandler(handler);
     }
 
-    function ()
+    receive()
         external
         payable
     {
@@ -45,7 +45,7 @@ contract FallbackManager is SelfAuthorized {
             // solium-disable-next-line security/no-inline-assembly
             assembly {
                 calldatacopy(0, 0, calldatasize())
-                let success := call(gas, handler, 0, 0, calldatasize(), 0, 0)
+                let success := call(gas(), handler, 0, 0, calldatasize(), 0, 0)
                 returndatacopy(0, 0, returndatasize())
                 if eq(success, 0) { revert(0, returndatasize()) }
                 return(0, returndatasize())

@@ -31,7 +31,7 @@ contract CreateAndAddModules {
                 let createBytes := add(0x40, add(data, i))
 
                 let output := mload(0x40)
-                if eq(delegatecall(gas, proxyFactory, createBytes, createBytesLength, output, 0x20), 0) { revert(0, 0) }
+                if eq(delegatecall(gas(), proxyFactory, createBytes, createBytesLength, output, 0x20), 0) { revert(0, 0) }
                 module := and(mload(output), 0xffffffffffffffffffffffffffffffffffffffff)
 
                 // Data is always padded to 32 bytes
