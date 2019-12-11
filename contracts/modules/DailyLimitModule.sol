@@ -46,7 +46,6 @@ contract DailyLimitModule is Module {
     /// @param token Address of the token that should be transfered (0 for Ether)
     /// @param to Address to which the tokens should be transfered
     /// @param amount Amount of tokens (or Ether) that should be transfered
-    /// @return Returns if transaction can be executed.
     function executeDailyLimit(address token, address to, uint256 amount)
         public
     {

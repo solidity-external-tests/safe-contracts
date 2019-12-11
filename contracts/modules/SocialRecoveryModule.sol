@@ -61,7 +61,6 @@ contract SocialRecoveryModule is Module {
     /// @param prevOwner Owner that pointed to the owner to be replaced in the linked list
     /// @param oldOwner Owner address to be replaced.
     /// @param newOwner New owner address.
-    /// @return Returns if transaction can be executed.
     function recoverAccess(address prevOwner, address oldOwner, address newOwner)
         public
         onlyFriend
