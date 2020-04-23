@@ -48,8 +48,8 @@ contract MultiSend {
                 let data := add(transactions, add(i, 0x55))
                 let success := 0
                 switch operation
-                case 0 { success := call(gas, to, value, data, dataLength, 0, 0) }
-                case 1 { success := delegatecall(gas, to, data, dataLength, 0, 0) }
+                case 0 { success := call(gas(), to, value, data, dataLength, 0, 0) }
+                case 1 { success := delegatecall(gas(), to, data, dataLength, 0, 0) }
                 if eq(success, 0) { revert(0, 0) }
                 // Next entry starts at 85 byte + data length
                 i := add(i, add(0x55, dataLength))

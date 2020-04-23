@@ -11,9 +11,9 @@ contract DefaultCallbackHandler is ERC1155TokenReceiver, ERC777TokensRecipient, 
     string public constant NAME = "Default Callback Handler";
     string public constant VERSION = "1.0.0";
 
-    function onERC1155Received(address, address, uint256, uint256, bytes calldata)
+    function onERC1155Received(address, address, uint256, uint256, bytes calldata) override
         external
-        returns(bytes4)
+        returns(bytes4) override
     {
         return 0xf23a6e61;
     }
