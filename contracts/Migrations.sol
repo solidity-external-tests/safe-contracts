@@ -9,7 +9,6 @@ contract Migrations {
     }
 
     constructor()
-        public
     {
         owner = msg.sender;
     }

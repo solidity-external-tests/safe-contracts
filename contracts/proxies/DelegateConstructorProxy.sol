@@ -11,7 +11,6 @@ contract DelegateConstructorProxy is GnosisSafeProxy {
     /// @param _masterCopy Master copy address.
     /// @param initializer Data used for a delegate call to initialize the contract.
     constructor(address _masterCopy, bytes memory initializer) GnosisSafeProxy(_masterCopy)
-        public
     {
         if (initializer.length > 0) {
             // solium-disable-next-line security/no-inline-assembly

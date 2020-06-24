@@ -57,7 +57,7 @@ contract GnosisSafe
     mapping(address => mapping(bytes32 => uint256)) public approvedHashes;
 
     // This constructor ensures that this contract can only be used as a master copy for Proxy contracts
-    constructor() public {
+    constructor() {
         // By setting the threshold it is not possible to call setup anymore,
         // so we create a Safe with 0 owners and threshold 1.
         // This is an unusable Safe, perfect for the mastercopy

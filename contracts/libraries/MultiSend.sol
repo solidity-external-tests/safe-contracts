@@ -12,7 +12,7 @@ contract MultiSend {
 
     bytes32 guard;
 
-    constructor() public {
+    constructor() {
         guard = GUARD_VALUE;
     }
 

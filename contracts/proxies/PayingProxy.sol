@@ -15,7 +15,6 @@ contract PayingProxy is DelegateConstructorProxy, SecuredTokenTransfer {
     /// @param payment Value that should be paid
     constructor(address _masterCopy, bytes memory initializer, address payable funder, address paymentToken, uint256 payment)
         DelegateConstructorProxy(_masterCopy, initializer)
-        public
     {
         if (payment > 0) {
             if (paymentToken == address(0)) {
