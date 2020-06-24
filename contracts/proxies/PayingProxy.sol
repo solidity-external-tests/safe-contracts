@@ -13,9 +13,8 @@ contract PayingProxy is DelegateConstructorProxy, SecuredTokenTransfer {
     /// @param funder Address that should be paid for the execution of this call
     /// @param paymentToken Token that should be used for the payment (0 is ETH)
     /// @param payment Value that should be paid
-    constructor(address _masterCopy, bytes memory initializer, address payable funder, address paymentToken, uint256 payment) 
+    constructor(address _masterCopy, bytes memory initializer, address payable funder, address paymentToken, uint256 payment)
         DelegateConstructorProxy(_masterCopy, initializer)
-        public
     {
         if (payment > 0) {
             if (paymentToken == address(0)) {
@@ -24,6 +23,6 @@ contract PayingProxy is DelegateConstructorProxy, SecuredTokenTransfer {
             } else {
                 require(transferToken(paymentToken, funder, payment), "Could not pay safe creation with token");
             }
-        } 
+        }
     }
 }
