@@ -1,4 +1,4 @@
-pragma solidity ^0.5.3;
+pragma solidity >=0.5.3 <0.8.0;
 import "./GnosisSafeProxy.sol";
 import "./IProxyCreationCallback.sol";
 

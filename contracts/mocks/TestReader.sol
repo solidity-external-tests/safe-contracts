@@ -1,4 +1,4 @@
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity >=0.5.0 <0.8.0;
 import "../base/GnosisSafeStateReader.sol";
 contract TestReader {
     using GnosisSafeReader for GnosisSafe;
