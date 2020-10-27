@@ -37,7 +37,7 @@ contract GnosisSafeStateReader is Executor, MasterCopyStorage, ModuleManagerStor
     /// @dev Returns array of modules.
     /// @param start Start of the page.
     /// @param pageSize Maximum number of modules that should be returned.
-    /// @return Array of modules.
+    /// @return array Array of modules.
     function getModulesPaginated(address start, uint256 pageSize)
         public
         view
