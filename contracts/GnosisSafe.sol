@@ -201,7 +201,7 @@ contract GnosisSafe
             // If v is 0 then it is a contract signature
             if (v == 0) {
                 // When handling contract signatures the address of the contract is encoded into r
-                currentOwner = address(uint256(r));
+                currentOwner = address(uint160(uint256(r)));
 
                 // Check that signature data pointer (s) is not pointing inside the static part of the signatures bytes
                 // This check is not completely accurate, since it is possible that more signatures than the threshold are send.
@@ -230,7 +230,7 @@ contract GnosisSafe
             // If v is 1 then it is an approved hash
             } else if (v == 1) {
                 // When handling approved hashes the address of the approver is encoded into r
-                currentOwner = address(uint256(r));
+                currentOwner = address(uint160(uint256(r)));
                 // Hashes are automatically approved by the sender of the message or when they have been pre-approved via a separate transaction
                 require(msg.sender == currentOwner || approvedHashes[currentOwner][dataHash] != 0, "Hash has not been approved");
                 // Hash has been marked for consumption. If this hash was pre-approved free storage
