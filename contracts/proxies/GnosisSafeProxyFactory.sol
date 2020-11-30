@@ -19,7 +19,7 @@ contract GnosisSafeProxyFactory {
         if (data.length > 0)
             // solium-disable-next-line security/no-inline-assembly
             assembly {
-                if eq(call(gas, proxy, 0, add(data, 0x20), mload(data), 0, 0), 0) { revert(0, 0) }
+                if eq(call(gas(), proxy, 0, add(data, 0x20), mload(data), 0, 0), 0) { revert(0, 0) }
             }
         emit ProxyCreation(proxy);
     }
@@ -65,7 +65,7 @@ contract GnosisSafeProxyFactory {
         if (initializer.length > 0)
             // solium-disable-next-line security/no-inline-assembly
             assembly {
-                if eq(call(gas, proxy, 0, add(initializer, 0x20), mload(initializer), 0, 0), 0) { revert(0,0) }
+                if eq(call(gas(), proxy, 0, add(initializer, 0x20), mload(initializer), 0, 0), 0) { revert(0,0) }
             }
         emit ProxyCreation(proxy);
     }
