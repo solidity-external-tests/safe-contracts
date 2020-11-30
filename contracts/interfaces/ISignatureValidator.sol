@@ -1,11 +1,11 @@
 pragma solidity >=0.5.0 <0.8.0;
 
-contract ISignatureValidatorConstants {
+abstract contract ISignatureValidatorConstants {
     // bytes4(keccak256("isValidSignature(bytes,bytes)")
     bytes4 constant internal EIP1271_MAGIC_VALUE = 0x20c13b0b;
 }
 
-contract ISignatureValidator is ISignatureValidatorConstants {
+abstract contract ISignatureValidator is ISignatureValidatorConstants {
 
     /**
     * @dev Should return whether the signature provided is valid for the provided data
