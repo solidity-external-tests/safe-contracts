@@ -21,5 +21,6 @@ abstract contract ISignatureValidator is ISignatureValidatorConstants {
         bytes memory _signature)
         public
         view
+        virtual
         returns (bytes4);
 }
