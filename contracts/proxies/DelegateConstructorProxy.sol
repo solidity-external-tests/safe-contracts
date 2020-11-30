@@ -15,8 +15,8 @@ contract DelegateConstructorProxy is GnosisSafeProxy {
         if (initializer.length > 0) {
             // solium-disable-next-line security/no-inline-assembly
             assembly {
-                let masterCopy := and(sload(0), 0xffffffffffffffffffffffffffffffffffffffff)
-                let success := delegatecall(sub(gas(), 10000), masterCopy, add(initializer, 0x20), mload(initializer), 0, 0)
+                let masterCopy_ := and(sload(0), 0xffffffffffffffffffffffffffffffffffffffff)
+                let success := delegatecall(sub(gas(), 10000), masterCopy_, add(initializer, 0x20), mload(initializer), 0, 0)
                 let ptr := mload(0x40)
                 returndatacopy(ptr, 0, returndatasize())
                 if eq(success, 0) { revert(ptr, returndatasize()) }
