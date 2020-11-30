@@ -28,7 +28,7 @@ contract FallbackManager is SelfAuthorized {
         internalSetFallbackHandler(handler);
     }
 
-    function ()
+    fallback()
         external
         payable
     {

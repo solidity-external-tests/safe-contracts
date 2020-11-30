@@ -5,8 +5,8 @@ pragma solidity >=0.5.0 <0.8.0;
 /// @author Richard Meissner - <richard@gnosis.pm>
 contract EtherPaymentFallback {
 
-    /// @dev Fallback function accepts Ether transactions.
-    function ()
+    /// @dev Receive function accepts Ether transactions.
+    receive()
         external
         payable
     {
