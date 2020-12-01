@@ -70,7 +70,7 @@ contract('GnosisSafe owner and module management', function(accounts) {
         await web3.eth.sendTransaction({from: accounts[0], to: gnosisSafe.address, value: web3.utils.toWei("0.1", 'ether')})
 
 	    // Check that the current address is pointing to the master copy
-        assert.equal(await web3.eth.getStorageAt(gnosisSafe.address, 0), gnosisSafeMasterCopy.address.toLowerCase())
+        assert.equal(web3.utils.padLeft(await web3.eth.getStorageAt(gnosisSafe.address, 0), 20), gnosisSafeMasterCopy.address.toLowerCase())
 
         // We deploy a new master copy
         let newMasterCopy = await utils.deployContract("deploying Gnosis Safe Mastercopy", GnosisSafe)
@@ -78,7 +78,7 @@ contract('GnosisSafe owner and module management', function(accounts) {
         let data = await gnosisSafe.contract.methods.changeMasterCopy(newMasterCopy.address).encodeABI()
         let updateTx = await safeUtils.executeTransaction(lw, gnosisSafe, 'update master copy', [lw.accounts[0], lw.accounts[1]], gnosisSafe.address, 0, data, CALL, executor)
         assert.equal(utils.checkTxEvent(updateTx, 'ChangedMasterCopy', gnosisSafe.address, true).args.masterCopy, newMasterCopy.address)
-        assert.equal(await web3.eth.getStorageAt(gnosisSafe.address, 0), newMasterCopy.address.toLowerCase())
+        assert.equal(web3.utils.padLeft(await web3.eth.getStorageAt(gnosisSafe.address, 0), 20), newMasterCopy.address.toLowerCase())
     })
 
 

@@ -87,7 +87,7 @@ contract('MultiSend', function(accounts) {
         assert.equal(await gnosisSafe.getThreshold(), 2)
         let modules = await gnosisSafe.getModules()
         assert.equal(modules.length, 1)
-        assert.equal(await web3.eth.getStorageAt(modules[0], 0), stateChannelModuleMasterCopy.address.toLowerCase())
+        assert.equal(web3.utils.padLeft(await web3.eth.getStorageAt(modules[0], 0), 20), stateChannelModuleMasterCopy.address.toLowerCase())
     })
 
     it('Use multisend on deployment', async () => {
@@ -127,7 +127,7 @@ contract('MultiSend', function(accounts) {
         assert.equal(await newSafe.getThreshold(), 2)
         let modules = await newSafe.getModules()
         assert.equal(modules.length, 1)
-        assert.equal(await web3.eth.getStorageAt(modules[0], 0), stateChannelModuleMasterCopy.address.toLowerCase())
+        assert.equal(web3.utils.padLeft(await web3.eth.getStorageAt(modules[0], 0), 20), stateChannelModuleMasterCopy.address.toLowerCase())
         let scModule = await StateChannelModule.at(modules[0])
         assert.equal(await scModule.manager(), utils.formatAddress(newSafeAddress))
     })
