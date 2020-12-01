@@ -87,6 +87,6 @@ contract DailyLimitModule is Module {
         view
         returns (uint)
     {
-        return now - (now % 1 days);
+        return block.timestamp - (block.timestamp % 1 days);
     }
 }
