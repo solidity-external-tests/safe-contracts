@@ -75,7 +75,7 @@ contract GnosisSafe
     }
 
     function getStateReader() public view returns(address reader) {
-        address payable master = address(uint(masterCopy));
+        address payable master = payable(masterCopy);
         reader = master == address(0) ? stateReader : GnosisSafe(master).getStateReader();
     }
 
