@@ -171,7 +171,7 @@ contract GnosisSafe
         returns (uint256 payment)
     {
         // solium-disable-next-line security/no-tx-origin
-        address payable receiver = refundReceiver == address(0) ? tx.origin : refundReceiver;
+        address payable receiver = refundReceiver == address(0) ? payable(tx.origin) : refundReceiver;
         if (gasToken == address(0)) {
             // For ETH we will only adjust the gas price to not be higher than the actual used gas price
             payment = gasUsed.add(baseGas).mul(gasPrice < tx.gasprice ? gasPrice : tx.gasprice);
