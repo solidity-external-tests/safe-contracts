@@ -300,7 +300,7 @@ contract GnosisSafe
         return EIP1271_MAGIC_VALUE;
     }
 
-    function getChainId() private pure returns(uint chainId) {
+    function getChainId() private view returns(uint chainId) {
         // solium-disable-next-line security/no-inline-assembly
         assembly {
             chainId := chainid()
