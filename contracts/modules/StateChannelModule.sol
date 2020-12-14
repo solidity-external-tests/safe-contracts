@@ -84,6 +84,6 @@ contract StateChannelModule is Module, SignatureDecoder {
         view
         returns (bytes32)
     {
-        return keccak256(abi.encodePacked(byte(0x19), byte(0), this, to, value, data, operation, nonce));
+        return keccak256(abi.encodePacked(bytes1(0x19), bytes1(0), this, to, value, data, operation, nonce));
     }
 }

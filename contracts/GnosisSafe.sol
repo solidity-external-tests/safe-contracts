@@ -350,7 +350,7 @@ contract GnosisSafe
             abi.encode(SAFE_MSG_TYPEHASH, keccak256(message))
         );
         return keccak256(
-            abi.encodePacked(byte(0x19), byte(0x01), domainSeparator, safeMessageHash)
+            abi.encodePacked(bytes1(0x19), bytes1(0x01), domainSeparator, safeMessageHash)
         );
     }
 
@@ -385,7 +385,7 @@ contract GnosisSafe
         bytes32 safeTxHash = keccak256(
             abi.encode(SAFE_TX_TYPEHASH, to, value, keccak256(data), operation, safeTxGas, baseGas, gasPrice, gasToken, refundReceiver, _nonce)
         );
-        return abi.encodePacked(byte(0x19), byte(0x01), domainSeparator, safeTxHash);
+        return abi.encodePacked(bytes1(0x19), bytes1(0x01), domainSeparator, safeTxHash);
     }
 
     /// @dev Returns hash to be signed by owners.
